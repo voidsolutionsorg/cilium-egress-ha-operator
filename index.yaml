@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  cilium-egress-ha-operator:
+  - apiVersion: v2
+    appVersion: v1.0.2
+    created: "2024-03-27T13:35:24.318912534Z"
+    description: A Helm chart for Kubernetes
+    digest: 5bd2b36b8c721709a010a4cf87019c30ac4d0c637d3e32edc186f773654bdca9
+    name: cilium-egress-ha-operator
+    type: application
+    urls:
+    - https://github.com/tminaorg/cilium-egress-ha-operator/releases/download/cilium-egress-ha-operator-1.0.3/cilium-egress-ha-operator-1.0.3.tgz
+    version: 1.0.3
+generated: "2024-03-27T13:35:24.318923705Z"
