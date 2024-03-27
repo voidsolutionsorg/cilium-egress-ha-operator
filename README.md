@@ -16,7 +16,7 @@ This process takes about 30s.
 
 ## Deployment
 
-Use provided Helm chart repo: `https://tmina.github.io/cilium-egress-ha-operator/` and chart name: `cilium-egress-ha-operator`
+Use provided Helm chart repo: `https://tminaorg.github.io/cilium-egress-ha-operator/` and chart name: `cilium-egress-ha-operator`
 
 ## Acknowledgments
 
