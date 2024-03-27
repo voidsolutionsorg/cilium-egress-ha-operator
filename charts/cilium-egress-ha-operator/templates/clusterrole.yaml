@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "cilium-egress-ha-operator.clusterRoleName" . }}
+  labels:
+    {{- include "cilium-egress-ha-operator.labels" . | nindent 4 }}
+  {{- with .Values.clusterRole.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+{{- with .Values.clusterRole.rules }}
+rules:
+  {{- toYaml . | nindent 2 }}
+{{- end }}

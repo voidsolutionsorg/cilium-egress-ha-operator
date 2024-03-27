@@ -1,0 +1,18 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ include "cilium-egress-ha-operator.clusterRoleBindingName" . }}
+  labels:
+    {{- include "cilium-egress-ha-operator.labels" . | nindent 4 }}
+  {{- with .Values.clusterRoleBinding.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ include "cilium-egress-ha-operator.clusterRoleName" . }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "cilium-egress-ha-operator.serviceAccountName" . }}
+    namespace: {{ .Release.Namespace }}

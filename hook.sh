@@ -13,7 +13,7 @@ function __config__() {
       kind: Node
       labelSelector:
         matchLabels:
-          node-role.kubernetes.io/egress: "true"
+          node.kubernetes.io/role: "egress"
       jqFilter: |
         {
           name: .metadata.name,
@@ -32,7 +32,7 @@ function __main__() {
     if echo $taints | grep -v "node.kubernetes.io/unreachable"; then
       export egress_ready=$node_name
       for i in $(kubectl get ciliumegressgatewaypolicies.cilium.io -o name); do
-        kubectl get $i -o yaml | yq 'del(.metadata.annotations, .metadata.creationTimestamp, .metadata.generation, .metadata.resourceVersion, .metadata.uid)' | yq '.spec.egressGateway.nodeSelector.matchLabels."kubernetes.io/hostname" = env(egress_ready)' | kubectl apply -f -
+        kubectl patch $i -p "[{\"op\": \"replace\", \"path\": \"/spec/egressGateway/nodeSelector/matchLabels/kubernetes.io~1hostname\", \"value\": \"${egress_ready}\"}]" --type=json
       done
       break
     fi
