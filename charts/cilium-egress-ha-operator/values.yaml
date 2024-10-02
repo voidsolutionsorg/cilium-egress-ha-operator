@@ -86,8 +86,12 @@ affinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       - labelSelector:
           matchExpressions:
-            - key: app
+            - key: app.kubernetes.io/name
               operator: In
               values:
-                - cilium-egress-ha-operator
+                - {{ include "cilium-egress-ha-operator.name" . }}
+            - key: app.kubernetes.io/instance
+              operator: In
+              values:
+                - {{ .Release.Name }}
         topologyKey: "kubernetes.io/hostname"
