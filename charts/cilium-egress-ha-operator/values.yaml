@@ -81,17 +81,4 @@ tolerations:
     operator: Exists
     effect: NoSchedule
 
-affinity:
-  podAntiAffinity:
-    requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-            - key: app.kubernetes.io/name
-              operator: In
-              values:
-                - {{ include "cilium-egress-ha-operator.name" . }}
-            - key: app.kubernetes.io/instance
-              operator: In
-              values:
-                - {{ .Release.Name }}
-        topologyKey: "kubernetes.io/hostname"
+affinity: {}
