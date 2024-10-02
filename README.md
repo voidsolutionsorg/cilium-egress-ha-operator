@@ -2,7 +2,7 @@
 
 ## Description
 
-[cilium-egress-ha-operator](https://github.com/tminaorg/cilium-egress-ha-operator) is a simple k8s operator based on [Flant shell-operator](https://github.com/flant/shell-operator) for HA-mode of Cilium egress feature.
+[cilium-egress-ha-operator](https://github.com/voidsolutionsorg/cilium-egress-ha-operator) is a simple k8s operator based on [Flant shell-operator](https://github.com/flant/shell-operator) for HA-mode of Cilium egress feature.
 
 [Cilium](https://cilium.io/) has an awesome feature called [egress](https://docs.cilium.io/en/stable/network/egress-gateway/), that allows you to redirect outbound traffic from specific pods to specific nodes (via labels).
 
@@ -16,7 +16,7 @@ This process takes about 30s.
 
 ## Deployment
 
-Use provided Helm chart repo: `https://tminaorg.github.io/cilium-egress-ha-operator/` and chart name: `cilium-egress-ha-operator`
+Use provided Helm chart repo: `https://voidsolutionsorg.github.io/cilium-egress-ha-operator/` and chart name: `cilium-egress-ha-operator`
 
 ## Acknowledgments
 
@@ -24,7 +24,7 @@ This repo is a fork of nikatar's [egress-cilium-node-ha-operator](https://github
 
 - Helm chart for easier deployment
 
-- Github Container registry docker image (`ghcr.io/tminaorg/cilium-egress-ha-operator`) for amd64 & arm64
+- Github Container registry docker image (`ghcr.io/voidsolutionsorg/cilium-egress-ha-operator`) for amd64 & arm64
 
 - Less K8s ClusterRole permissions:
   - removed "patch" for nodes (remaining: "get", "watch", "list")
