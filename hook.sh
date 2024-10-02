@@ -13,7 +13,7 @@ function __config__() {
       kind: Node
       labelSelector:
         matchLabels:
-          node-role.kubernetes.io/egress: "true"
+          cilium.io/egress: "true"
       jqFilter: |
         {
           name: .metadata.name,
