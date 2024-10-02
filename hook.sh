@@ -13,7 +13,7 @@ function __config__() {
       kind: Node
       labelSelector:
         matchLabels:
-          node.kubernetes.io/role: "egress"
+          node-role.kubernetes.io/egress: "true"
       jqFilter: |
         {
           name: .metadata.name,
